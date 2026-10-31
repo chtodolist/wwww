@@ -3,10 +3,10 @@
 	"gd": {
 		"win": "*"
 	},
-	"id": "sSeanyboii.frame-window-counter",
+	"id": "sseanyboii.frame-window-counter",
 	"name": "Frame Window Counter",
 	"version": "v1.0.0",
-	"developer": "sSeanyboii",
+	"developer": "sseanyboii",
 	"description": "Analyzes every click of a .gdr2 macro and counts how many fall into 1-, 2-, 3-, 4- and 5+-frame windows.",
 	"settings": {
 		"max-shift": {
