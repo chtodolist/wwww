@@ -35,12 +35,13 @@ class $modify(FWCPauseLayer, PauseLayer) {
 
 // Feeds the macro's inputs into the simulation while an analysis is running.
 class $modify(FWCBaseLayer, GJBaseGameLayer) {
-    void processCommands(float dt) {
+    void processCommands(float dt, bool isHalfTick, bool isLastTick) {
         auto& a = fwc::Analyzer::get();
         bool mine = a.isStepping() && static_cast<GJBaseGameLayer*>(PlayLayer::get()) == this;
         if (mine) a.beforeStep(this);
-        GJBaseGameLayer::processCommands(dt);
-        if (mine) a.afterStep();
+        GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
+        // only count a full physics step once, on its last tick
+        if (mine && isLastTick) a.afterStep();
     }
 };
 
