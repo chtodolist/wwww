@@ -1,0 +1,49 @@
+{
+	"geode": "v5.8.0",
+	"gd": {
+		"win": "*"
+	},
+	"id": "yourname.frame-window-counter",
+	"name": "Frame Window Counter",
+	"version": "v1.0.0",
+	"developer": "YourName",
+	"description": "Analyzes every click of a .gdr2 macro and counts how many fall into 1-, 2-, 3-, 4- and 5+-frame windows.",
+	"settings": {
+		"max-shift": {
+			"type": "int",
+			"default": 12,
+			"min": 2,
+			"max": 60,
+			"name": "Max shift (frames)",
+			"description": "How far each click is moved earlier / later while measuring its window. Windows wider than 2 x this + 1 are capped."
+		},
+		"horizon-margin": {
+			"type": "int",
+			"default": 20,
+			"min": 4,
+			"max": 120,
+			"name": "Survival margin (frames)",
+			"description": "A shifted click only counts as valid if the player survives until the next click plus this many frames."
+		},
+		"shift-release": {
+			"type": "bool",
+			"default": true,
+			"name": "Shift release with press",
+			"description": "Keep the hold length of each click when it is moved. If off, only the press moves and the release stays put."
+		},
+		"step-budget-ms": {
+			"type": "int",
+			"default": 12,
+			"min": 2,
+			"max": 100,
+			"name": "Work per frame (ms)",
+			"description": "How long analysis may run each rendered frame. Higher = faster analysis, laggier UI."
+		},
+		"extra-macro-folder": {
+			"type": "string",
+			"default": "",
+			"name": "Extra macro folder",
+			"description": "Optional additional folder that is scanned for .gdr2 files (e.g. your bot's macro folder)."
+		}
+	}
+}
